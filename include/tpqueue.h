@@ -22,7 +22,7 @@ class TPQueue {
  public:
     TPQueue() noexcept = default;
 
-    void enqueue(const T& value) {
+    void push(const T& value) {
         auto new_node = std::unique_ptr<Node<T>>(new Node<T>{value});
         new_node->val = value;
 
@@ -38,7 +38,7 @@ class TPQueue {
             prev->next = std::move(new_node);
         }
     }
-    T dequeue() {
+    T pop() {
         if (!head_) {
             throw std::out_of_range("Очередь пуста");
         }
