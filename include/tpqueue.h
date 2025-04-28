@@ -3,6 +3,7 @@
 #define INCLUDE_TPQUEUE_H_
 #include <iostream>
 #include <memory>
+#include <utility>
 
 struct SYM {
     char ch;
@@ -18,7 +19,7 @@ struct Node {
 
 template<typename T>
 class TPQueue {
-public:
+ public:
     TPQueue() noexcept = default;
 
     void enqueue(const T& value) {
@@ -49,7 +50,7 @@ public:
         return !head_;
     }
 
-private:
+ private:
     std::unique_ptr<Node<T>> head_{nullptr};
 };
 
